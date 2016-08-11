@@ -1,8 +1,4 @@
-# senpai
-Senpai is a UCI Chess Engine written by Fabien Letouzey
-
-
-
+﻿
 Senpai 1.0 Copyright (C) 2014 Fabien Letouzey.
 This program is distributed under the GNU General Public License version 3.
 See LICENSE for more details.
@@ -56,3 +52,5 @@ I haven't had the time to clean up the source code, sorry about that.  In exchan
 Thanks for you attention,
 
 Fabien Letouzey (fabien_letouzey@hotmail.com).
+
+
