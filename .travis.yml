@@ -8,10 +8,14 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
+            - llvm-toolchain-trusty-6.0
+            - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-6.0 main'
+              key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
           packages:
-            - clang
-            - llvm-dev
-
+            - clang-6.0
+            - libstdc++6
+before_install:
+  - sudo apt-get remove clang-5.0
 script:
   - cd src
   - find /usr -type f -name "LLVMgold.so"
