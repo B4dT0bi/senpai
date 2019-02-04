@@ -11,22 +11,10 @@ matrix:
           packages:
             - clang
 
-before_install:
-  - sudo apt-add-repository "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main"
-  - wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
-  - sudo apt-get update
-  - sudo apt-get install clang-4.0 lldb-4.0
-  - pip install --user cpp-coveralls
-
-install:
-
-  # verify installed versions
-  - which g++
-  - g++ -v
-  - pwd
-
 script:
   - cd src
+  - locate LLVMgold.so
+  - ls /usr/lib/clang*/lib/LLVMgold.so
   - make clean
   - make 
 
