@@ -15,8 +15,8 @@ matrix:
             - clang-5.0
             - libstdc++6
 script:
-  - sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-5.0 1000
-  - sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-5.0 1000
+  - sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.4 1000
+  - sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.4 1000
   - sudo update-alternatives --config clang
   - sudo update-alternatives --config clang++
   - cd src
