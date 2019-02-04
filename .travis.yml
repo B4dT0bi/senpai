@@ -14,8 +14,6 @@ matrix:
           packages:
             - clang-6.0
             - libstdc++6
-before_install:
-  - sudo apt-get remove clang-5.0
 script:
   - cd src
   - find /usr -type f -name "LLVMgold.so"
