@@ -1,0 +1,35 @@
+language:
+  - cpp
+
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+            - clang
+            - libstdc++-5-dev
+      env:
+        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+
+before_install:
+  - eval "${MATRIX_EVAL}"
+  - sudo apt-add-repository "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main"
+  - sudo apt-get update
+  - sudo apt-get install clang-4.0 lldb-4.0
+  - pip install --user cpp-coveralls
+
+install:
+
+  # verify installed versions
+  - which g++
+  - g++ -v
+  - pwd
+
+script:
+  - make clean
+  - make 
+
