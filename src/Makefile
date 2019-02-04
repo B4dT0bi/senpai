@@ -33,9 +33,6 @@ CXXFLAGS += -std=c++11 -fno-rtti
 CXXFLAGS += -O2 -mpopcnt -mbmi2 -DBMI
 LDFLAGS  += -O2
 
-CXXFLAGS += -flto
-LDFLAGS  += -flto
-
 # dependencies
 
 $(EXE): $(OBJS)
