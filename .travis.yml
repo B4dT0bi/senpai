@@ -15,6 +15,13 @@ matrix:
             - clang-6.0
             - libstdc++6
 script:
+  - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.8 100
+  - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0 1000
+  - update-alternatives --install /usr/bin/clang++ clang /usr/bin/clang-3.8 100
+  - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 100
+  - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 1000
+  - update-alternatives --config clang
+  - update-alternatives --config clang++
   - cd src
   - find /usr -type f -name "LLVMgold.so"
   - make clean
