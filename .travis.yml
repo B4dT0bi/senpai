@@ -8,18 +8,24 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
+            - llvm-toolchain-trusty-5.0
+            - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-5.0 main'
+              key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
             - llvm-toolchain-trusty-6.0
             - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-6.0 main'
               key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
           packages:
             - clang-6.0
             - libstdc++6
+            - llvm-5.0-dev
             - llvm-6.0-dev
 script:
   - sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0 1000
   - sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 1000
   - sudo update-alternatives --config clang
   - sudo update-alternatives --config clang++
+  - which clang++
+  - which clang
   - cd src
   - find /usr -type f -name "LLVMgold.so"
   - make clean
