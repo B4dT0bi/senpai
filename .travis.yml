@@ -10,11 +10,11 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - clang
+            - llvm-dev
 
 script:
   - cd src
-  - locate LLVMgold.so
-  - ls /usr/lib/clang*/lib/LLVMgold.so
+  - find /usr -type f -name "LLVMgold.so"
   - make clean
   - make 
 
